@@ -1,0 +1,72 @@
+<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+   <script type="text/javascript" src="./build/froalacharts/froalacharts.js"></script>
+
+      <script type="text/javascript">   
+       var data = {  
+        chart: {
+    caption: "Website visits",
+    subcaption: "Purchase - Conversion analysis for last year",
+    decimals: "1",
+    showvalues: "1",
+    plottooltext: "$label: <b>$dataValue</b>",
+    plotfillalpha: "70",
+    theme: "fusion",
+    streamlineddata: "0",
+    is2D: "1",
+  },
+  data: [
+    {
+      label: "Website Visits",
+      value: "17362"
+    },
+    {
+      label: "Downloads",
+      value: "8039"
+    },
+    {
+      label: "Checked Pricing",
+      value: "5509"
+    },
+    {
+      label: "Asked for Quotation",
+      value: "3962"
+    },
+    {
+      label: "Purchased",
+      value: "2397"
+    }
+  ]
+};
+       
+
+FroalaCharts.ready(function () {
+ FroalaCharts.options.license({
+                 key:'rpI3xgkA3D5B3A4D4I4E3C10A6E2B2E2oyjG1C3C8D4E3D2C2C3I2H1B10D3D1F4D5D3B-8I-8G-7B6A6E3tB2C1C1uomB1E6B1C3F3B2A21A14B14A8D8blA-9H4C2B2A1A1A1E7B1E5E4B1C3B9A4e==',
+                 creditLabel: true
+             })
+            fusioncharts = new FroalaCharts({
+                id: "chart_1",
+                type: 'funnel',
+                renderAt: 'ft',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            fusioncharts.render();
+        });
+    </script>
+    
+</head>
+
+
+<div id="msg" class="mb-20"> Chart data in the selected format will be displayed here.</div>
+
+<body>
+    <div id="ft">FusionCharts will render here</div>
+</body>
+
+</html>

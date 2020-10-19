@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Parallel tests]">
+  <listeners>
+    <listener class-name="com.fusioncharts.ExtentReportListener.ExtentReporterNG"/>
+  </listeners>
+  <test thread-count="5" name="Test One(failed)">
+    <classes>
+      <class name="com.fusioncharts.apitest.Clone">
+        <methods>
+          <include name="verifyAPI"/>
+          <include name="setUp"/>
+          <include name="shutDown"/>
+        </methods>
+      </class> <!-- com.fusioncharts.apitest.Clone -->
+    </classes>
+  </test> <!-- Test One(failed) -->
+</suite> <!-- Failed suite [Parallel tests] -->

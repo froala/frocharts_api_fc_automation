@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="API Regression">
+
+	<listeners>
+		<listener class-name="com.fusioncharts.ExtentReportListener.ExtentReporterNG"/>
+	</listeners>
+  	
+  	<test name="Clone" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.Clone" />
+    	</classes>
+  	</test>
+  	
+  	
+  	<test name="AddEventListener" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.AddEventListener" />
+    	</classes>
+  	</test>
+  	
+  	<test name="FormatNumber" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.FormatNumber" />
+    	</classes>
+  	</test>
+  	
+  	<test name="IsPlotItemSliced_slicePlotItem" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.IsPlotItemSliced_slicePlotItem" />
+    	</classes>
+  	</test>
+  	
+  	<test name="RemoveEventListener" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.RemoveEventListener" />
+    	</classes>
+  	</test>
+  	
+  	<test name="FeedData" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.FeedData" />
+    	</classes>
+  	</test>
+  	
+  	<test name="GetData" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.GetData" />
+    	</classes>
+  	</test>
+  	
+  	<test name="GetDataWithId" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.GetDataWithId" />
+    	</classes>
+  	</test>
+  	
+  	<test name="SetData" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.SetData" />
+    	</classes>
+  	</test>
+  	
+  	
+  	<test name="SetChartData" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.SetChartData" />
+    	</classes>
+  	</test>
+  	
+  	
+  	<test name="SetJSONData" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.SetJSONData" />
+    	</classes>
+  	</test>
+  	
+  	
+  	<test name="SetXMLData" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.SetXMLData" />
+    	</classes>
+  	</test>
+  	
+  	<test name="ShowChartMessage" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.ShowChartMessage" />
+    	</classes>
+  	</test>
+  	
+  	<test name="ZoomlineAPIs" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.ZoomlineAPIs" />
+    	</classes>
+  	</test>
+  	
+  	<test name="CenterLabel" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.CenterLabel" />
+    	</classes>
+  	</test>
+  	
+  	<test name="GetChartData" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.GetChartData" />
+    	</classes>
+  	</test>
+	
+	<test name="GetJSONData" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.GetJSONData" />
+    	</classes>
+  	</test>
+  	
+  	<test name="LockResize_ResizeTo" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.LockResize_ResizeTo" />
+    	</classes>
+  	</test>
+  	
+  	<test name="Configure" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.Configure" />
+    	</classes>
+  	</test>
+  	
+  	<test name="ConfigureLink" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.ConfigureLink" />
+    	</classes>
+  	</test>
+  	
+  	<test name="RealTimeAPIs" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.RealTimeAPIs" />
+    	</classes>
+  	</test>
+  	
+  	<test name="RealTimeAPIsAutoFeed" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.RealTimeAPIsAutoFeed" />
+    	</classes>
+  	</test>
+  	
+  	<test name="RealTimeAPIsAutoFeedLog" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.RealTimeAPIsAutoFeedLog" />
+    	</classes>
+  	</test>
+  	
+  	<test name="DragableChartAPIs" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.DragableChartAPIs" />
+    	</classes>
+  	</test>
+  	
+  	<test name="StartingAngle" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.StartingAngle" />
+    	</classes>
+  	</test>
+  	
+  	<test name="AnnotationAPIs" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.AnnotationAPIs" />
+    	</classes>
+  	</test>
+  	
+  	<test name="AllChartsDataAPIs" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.AllChartsDataAPIs" />
+    	</classes>
+  	</test>
+  	<test name="AllChartsSetDataAPIs" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.apitest.AllChartsSetDataAPIs" />
+    	</classes>
+  	</test>
+  	
+  	<test name="LicensingData" parallel="false" preserve-order="true" thread-count="1" >
+    	<classes>
+      		<class name="com.fusioncharts.licensevalidationtest.LicenseValidation" />
+    	</classes>
+  	</test>  	
+  	
+</suite>

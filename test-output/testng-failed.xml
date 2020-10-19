@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [API Regression]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.froalacharts.ExtentReportListener.ExtentReporterNG"/>
+  </listeners>
+  <test thread-count="1" name="Clone">
+    <classes>
+      <class name="com.froalacharts.apitest.Clone"/>
+    </classes>
+  </test> <!-- Clone -->
+  <test thread-count="1" name="AddEventListener">
+    <classes>
+      <class name="com.froalacharts.apitest.AddEventListener"/>
+    </classes>
+  </test> <!-- AddEventListener -->
+  <test thread-count="1" name="FormatNumber">
+    <classes>
+      <class name="com.froalacharts.apitest.FormatNumber"/>
+    </classes>
+  </test> <!-- FormatNumber -->
+  <test thread-count="1" name="IsPlotItemSliced_slicePlotItem">
+    <classes>
+      <class name="com.froalacharts.apitest.IsPlotItemSliced_slicePlotItem"/>
+    </classes>
+  </test> <!-- IsPlotItemSliced_slicePlotItem -->
+  <test thread-count="1" name="RemoveEventListener">
+    <classes>
+      <class name="com.froalacharts.apitest.RemoveEventListener"/>
+    </classes>
+  </test> <!-- RemoveEventListener -->
+  <test thread-count="1" name="SetJSONData">
+    <classes>
+      <class name="com.froalacharts.apitest.SetJSONData"/>
+    </classes>
+  </test> <!-- SetJSONData -->
+  <test thread-count="1" name="ShowChartMessage">
+    <classes>
+      <class name="com.froalacharts.apitest.ShowChartMessage"/>
+    </classes>
+  </test> <!-- ShowChartMessage -->
+  <test thread-count="1" name="CenterLabel">
+    <classes>
+      <class name="com.froalacharts.apitest.CenterLabel"/>
+    </classes>
+  </test> <!-- CenterLabel -->
+  <test thread-count="1" name="GetChartData">
+    <classes>
+      <class name="com.froalacharts.apitest.GetChartData"/>
+    </classes>
+  </test> <!-- GetChartData -->
+  <test thread-count="1" name="GetJSONData">
+    <classes>
+      <class name="com.froalacharts.apitest.GetJSONData"/>
+    </classes>
+  </test> <!-- GetJSONData -->
+  <test thread-count="1" name="LockResize_ResizeTo">
+    <classes>
+      <class name="com.froalacharts.apitest.LockResize_ResizeTo"/>
+    </classes>
+  </test> <!-- LockResize_ResizeTo -->
+  <test thread-count="1" name="Configure">
+    <classes>
+      <class name="com.froalacharts.apitest.Configure"/>
+    </classes>
+  </test> <!-- Configure -->
+  <test thread-count="1" name="ConfigureLink">
+    <classes>
+      <class name="com.froalacharts.apitest.ConfigureLink"/>
+    </classes>
+  </test> <!-- ConfigureLink -->
+  <test thread-count="1" name="StartingAngle">
+    <classes>
+      <class name="com.froalacharts.apitest.StartingAngle"/>
+    </classes>
+  </test> <!-- StartingAngle -->
+  <test thread-count="1" name="AllChartsDataAPIs">
+    <classes>
+      <class name="com.froalacharts.apitest.AllChartsDataAPIs"/>
+    </classes>
+  </test> <!-- AllChartsDataAPIs -->
+  <test thread-count="1" name="AllChartsSetDataAPIs">
+    <classes>
+      <class name="com.froalacharts.apitest.AllChartsSetDataAPIs"/>
+    </classes>
+  </test> <!-- AllChartsSetDataAPIs -->
+  <test thread-count="1" name="LicensingData">
+    <classes>
+      <class name="com.froalacharts.licensevalidationtest.LicenseValidation"/>
+    </classes>
+  </test> <!-- LicensingData -->
+</suite> <!-- Failed suite [API Regression] -->

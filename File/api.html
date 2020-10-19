@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <!-- <script src="http://192.168.2.211/repos/xt-edge/out/build/source/fusioncharts.js"></script> -->
+    <!-- <script src="http://192.168.2.211/repos/xt-edge/out/build/source/fusioncharts.theme.fint.js"></script> -->
+    
+    <!-- <script type="text/javascript" src="../../../build_files/3.13.3/fusioncharts.js"></script> -->
+    <script type="text/javascript" src="./build/develop/fusioncharts.js"></script>
+    <!-- <script type="text/javascript" src="../build_files/8063/fusioncharts.vml.js"></script>
+    <script type="text/javascript" src="../build_files/8063/fusioncharts.zoomline.js"></script>
+    <script type="text/javascript" src="../build_files/8063/fusioncharts.zoomscatter.js"></script>
+    <script type="text/javascript" src="../build_files/8063/fusioncharts.charts.js"></script>
+    <script type="text/javascript" src="../build_files/8063/fusioncharts.powercharts.js"></script>
+    <script type="text/javascript" src="../build_files/8063/fusioncharts.widgets.js"></script> -->
+    <script type="text/javascript" src="./build/develop/fusioncharts.maps.js"></script>
+    <script type="text/javascript" src="./build/develop/maps/fusioncharts.usa.js"></script>
+
+    <!-- <script type="text/javascript" src="../build_files/8063/maps/fusioncharts.usa.js"></script>
+    <script type="text/javascript" src="../build_files/8063/maps/fusioncharts.world.js"></script>
+
+    <script type="text/javascript" src="../build_files/8063/themes/fusioncharts.theme.fint.js"></script>
+    <script type="text/javascript" src="../build_files/8063/themes/fusioncharts.theme.ocean.js"></script>
+    <script type="text/javascript" src="../build_files/8063/themes/fusioncharts.theme.carbon.js"></script>
+    <script type="text/javascript" src="../build_files/8063/themes/fusioncharts.theme.zune.js"></script> -->
+</head>
+
+<body>
+    <div id='chart-container'></div>
+    <div>
+        <button type="button" id="add_annotation">addGroup+addItem</button>
+        <button type="button" id="destroy_annotation" disabled="true">destroy</button>
+        <button type="button" id="update_annotation" disabled="true">update</button>
+        <button type="button" id="show_annotation">show</button>
+        <button type="button" id="hide_annotation">hide</button>
+    </div>
+    <div>
+        <button type="button" id="na_destroy_annotation">DESTROY non-existent annotation</button>
+        <button type="button" id="na_update_annotation">UPDATE non-existent annotation</button>
+        <button type="button" id="na_show_annotation">SHOW non-existent annotation</button>
+        <button type="button" id="na_hide_annotation">HIDE non-existent annotation</button>
+    </div>
+    <div id='map-container'></div>
+    <div>
+        <button type="button" id="addMarker">addMarker</button>
+        <button type="button" id="updateMarker">updateMarker</button>
+        <button type="button" id="removeMarker">removeMarker</button>
+    </div>
+</body>
+<script type="text/javascript">
+    var chart;
+    FusionCharts.ready(function () {
+
+        chart = new FusionCharts({
+            type: 'spline',
+            renderAt: 'chart-container',
+            width: '600',
+            height: '350',
+            dataFormat: 'json',
+            dataSource: {
+                "chart": {
+                    "caption": "Total footfall in Bakersfield Central",
+                    "subCaption": "Last week",
+                    "xAxisName": "Day",
+                    "yAxisName": "No. of Visitors",
+                    "showValues": "1"
+                },
+                "annotations": {
+                    "origw": "400",
+                    "origh": "300",
+                    "autoscale": "1"
+
+                },
+                "data": [{
+                    "label": "Mon",
+                    "value": "15123"
+                }, {
+                    "label": "Tue",
+                    "value": "14233"
+                }, {
+                    "label": "Wed",
+                    "value": "25507"
+                }, {
+                    "label": "Thu",
+                    "value": "9110"
+                }, {
+                    "label": "Fri",
+                    "value": "15529"
+                }, {
+                    "label": "Sat",
+                    "value": "20803"
+                }, {
+                    "label": "Sun",
+                    "value": "19202"
+                }]
+            },
+            events: {
+                "rendercomplete": function (evt, args) {
+                    // var chartRef = evt.sender,
+                    var chartRef = chart,
+                        createGroupItems = function () {
+                            var annotations = chartRef.annotations;
+
+                            // Adding a group, "totalFootfall"
+                            annotations.addGroup({
+                                'id': 'totalFootfall'
+                            });
+
+                            //Adding rectangle annotation item to the annotation group
+                            annotations.addItem('totalFootfall', {
+                                "id": "dyn-labelBG",
+                                "type": "rectangle",
+                                "radius": "3",
+                                "x": "$canvasEndX - 100",
+                                "y": "$canvasStartY",
+                                "tox": "$canvasEndX",
+                                "toy": "$canvasStartY + 30",
+                                "color": "#0075c2",
+                                "alpha": "70"
+                            }, true);
+
+                            // Adding text annotation item to the annotation group
+                            annotations.addItem('totalFootfall', {
+                                "id": "dyn-label",
+                                "type": "text",
+                                "text": "Total: 119,507",
+                                "fillcolor": "#ffffff",
+                                "fontsize": "10",
+                                "x": "$canvasEndX - 50",
+                                "y": "$canvasStartY + 15"
+                            }, true);
+
+                        };
+
+                    //Code for adding the annotation-Start
+                    //     controls = document.createElement('div');
+                    // controls.innerHTML = '<input type="button" id = "add_annotation" value = "Show Total Footfall"></input> &nbsp;</input> &nbsp; <input type="button" id="destroy_annotation" value="Hide Total Footfall" disabled="true"><br> <br><input type="button" id ="update_annotation" value="Change Color" disabled="true"></input>';
+                    // controls.style.cssText = 'width:400px; text-align: center; font-size:12px;';
+
+                    // Append controls to document
+                    // args.container.appendChild(controls);
+                    // document.body.appendChild(controls);
+                    document.getElementById('add_annotation').onclick = function () {
+                        createGroupItems();
+                        document.getElementById('update_annotation').disabled = false;
+                        document.getElementById('destroy_annotation').disabled = false;
+                        document.getElementById('add_annotation').disabled = true;
+                    };
+                    //Code for adding the annotation-End
+
+                    //Code for showing/hiding the annotation-Start
+
+                    // var annotations = evt.sender.annotations;
+                    var annotations = chart.annotations;
+
+                    //Code for changing the color of the rectangle annotation - Start
+                    document.getElementById('update_annotation').onclick = function () {
+                        annotations.update('dyn-labelBG', {
+                            "fillColor": "#ff0000"
+                        });
+                    }
+
+                    //Code for changing the color of the rectangle annotation - End
+
+                    document.getElementById('destroy_annotation').onclick = function () {
+                        annotations.destroy('totalFootfall');
+                        document.getElementById('add_annotation').disabled = false;
+                        document.getElementById('update_annotation').disabled = true;
+                        document.getElementById('destroy_annotation').disabled = true;
+                    }
+
+                    document.getElementById('show_annotation').onclick = function () {
+                        annotations.show('totalFootfall');
+                    }
+
+                    document.getElementById('hide_annotation').onclick = function () {
+                        annotations.hide('totalFootfall');
+                    }
+
+                    // operations on  non existent annotations
+                    document.getElementById('na_update_annotation').onclick = function () {
+                        annotations.update('na-dyn-labelBG', {
+                            "fillColor": "#ff0000"
+                        });
+                    }
+                    document.getElementById('na_destroy_annotation').onclick = function () {
+                        annotations.destroy('na-totalFootfall');
+                    }
+                    document.getElementById('na_show_annotation').onclick = function () {
+                        annotations.show('na-totalFootfall');
+                    }
+                    document.getElementById('na_hide_annotation').onclick = function () {
+                        annotations.hide('na-totalFootfall');
+                    }
+                    // end of operations on  non existent annotations
+                }
+            }
+        }).render();
+    });
+
+    FusionCharts.ready(function () {
+
+        usaMap = new FusionCharts({
+            type: 'usa',
+            renderAt: 'map-container',
+            width: '600',
+            height: '350',
+            dataFormat: 'json',
+            dataSource: {
+                "chart": {
+                    "theme": "fint",
+                    "usehovercolor": "0",
+                    "caption": "Harry's SuperMart Office Locations",
+                    "subcaption": "Head Office and Zonal Offices",
+                    "fillcolor": "#b4ddb0",
+                    "bordercolor": "#ffffff",
+                    "showcanvasborder": "0",
+                    "showshadow": "0",
+                    "showlabels": "0",
+                    "markerradius": "30",
+                    "markerbordercolor": "#000000",
+                    "showmarkerhovereffect": "1",
+                    "markerfillcolor": "#00ff00",
+                    "markerborderthickness": "2",
+                    "markerfillhovercolor": "#ffff00",
+                    "markerborderhovercolor": "#f442e5",//pink
+                    "markerborderhoverthickness": "10"
+                },
+                "markers": {
+                    "application": [{
+                            "id": "west-zone-ho-1",
+                            "shapeid": "zo-shape"
+                        },
+                        {
+                            "id": "west-zone-ho-2",
+                            "shapeid": "zo-shape"
+                        },
+                        {
+                            "id": "mid-west-zone-ho",
+                            "shapeid": "hdo-shape"
+                        },
+                        {
+                            "id": "north-east-ho",
+                            "shapeid": "zo-shape"
+                        },
+                        {
+                            "id": "south-ho",
+                            "shapeid": "zo-shape"
+                        }
+                    ],
+                    "definition": [{
+                            "id": "west-zone-ho-1",
+                            "x": "100",
+                            "y": "250",
+                            "tooltext": "<b>Zonal office, California</b>{br}Address: 41216 N. Fern Avenue Lancaster CA 93534 {br}Phone: 661-723-1538{br}e-mail: california_zo@harryssupermart.com"
+                        },
+                        {
+                            "id": "west-zone-ho-2",
+                            "x": "140",
+                            "y": "40",
+                            "tooltext": "<b>Zonal office, Montana</b>{br}Address: 2719 US HWY 2 W Havre, MT 59501{br}Phone: 406-265-1923 {br}e-mail: havre_zo@harryssupermart.com"
+                        },
+                        {
+                            "id": "mid-west-zone-ho",
+                            "x": "450",
+                            "y": "200",
+                            "tooltext": "<b>Head Office, Illinois</b>{br}Address: 1160 Vachel Lindsay Drive Springfield, IL 62703{br}Phone: (217)-753-6800 {br}e-mail: springfield_ho@harryssupermart.com"
+                        },
+                        {
+                            "id": "north-east-ho",
+                            "x": "625",
+                            "y": "100",
+                            "labelpos": "left",
+                            "color": "#00ffff",
+                            "tooltext": "<b>Zonal Office, New York</b>{br}Address: 1581 Ford St extension Ogdensburg, NY 13669{br}Phone: (315) 392-2121{br}e-mail: newyork_zo@harryssupermart.com"
+                        },
+                        {
+                            "id": "south-ho",
+                            "x": "295",
+                            "y": "310",
+                            "tooltext": "<b>Zonal office, Texas</b>{br}Address: 210 W Loop 306 San Angelo, TX{br}Phone: 325-123-5703{br}e-mail: texas_zo@harryssupermart.com"
+                        }
+                    ],
+                    "shapes": [{
+                            "id": "hdo-shape",
+                            "type": "polygon",
+                            "sides": "5",
+                            "fillcolor": "#ff0000"
+                        },
+                        {
+                            "id": "zo-shape",
+                            "type": "circle",
+                            "fillcolor": "#0000ff"
+                        }
+                    ]
+                },
+                "data": [
+                    {
+                        "id": "CA",
+                        "displayvalue": "California",
+                        "showlabel": "1"
+                    },
+                    {
+                        "id": "MT",
+                        "displayvalue": "Montana",
+                        "showlabel": "1"
+                    },
+                    {
+                        "id": "NY",
+                        "displayvalue": "New York",
+                        "showlabel": "1"
+                    },
+                    {
+                        "id": "IL",
+                        "displayvalue": "Illinois",
+                        "showlabel": "1"
+                    },
+                    {
+                        "id": "TX",
+                        "displayvalue": "Texas",
+                        "showlabel": "1"
+                    }
+                ]
+            }
+        }).render();
+
+        document.getElementById('addMarker').onclick = function () {
+            usaMap.addMarker({
+                id: 'addedMarker',
+                x: '200',
+                y: '300',
+                tooltext: 'custom added marker',
+                shapeid: 'zo-shape'
+            });
+        }
+        document.getElementById('updateMarker').onclick = function () {
+            usaMap.updateMarker("addedMarker", {
+                tooltext: 'test tooltext',
+                shapeid: "hdo-shape",
+                fillColor: '#00ff00'
+            });
+        }
+        document.getElementById('removeMarker').onclick = function () {
+            usaMap.removeMarker("addedMarker");
+        }
+
+
+
+        // usaMap.getEntityList();
+        // usaMap.getMapName();
+        // usaMap.getMapAttribute();
+        // usaMap.getDataAsCSV();
+        // usaMap.getEntityList();
+    });
+</script>
+
+</html>

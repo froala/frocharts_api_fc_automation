@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Resizable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+    #resizable {
+        width: 650px;
+        height: 350px;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $(function() {
+        $("#resizable").resizable();
+    });
+    </script>
+    <script type="text/javascript" src="./build/develop/fusioncharts.js"></script>
+    <!-- <script type="text/javascript" src="3.12.1/fusioncharts.js"></script> -->
+</head>
+
+<body>
+    <div id="resizable" class="ui-widget-content">
+    </div>
+</body>
+<script type="text/javascript">
+fusioncharts = new FusionCharts({
+    type: "column2d",
+    renderAt: "resizable",
+    width: '100%',
+    height: '100%',
+    asyncRender: 1,
+    dataFormat: 'json',
+    dataSource: {
+        "chart": {
+            "caption": "Monthly",
+            "xaxisname": "Month",
+            "yaxisname": "Revenue",
+            "numberprefix": "$",
+            "showvalues": "1",
+            "animation": "1"
+        },
+        "data": [{
+                "label": "Jan",
+                "value": "420000"
+            },
+            {
+                "label": "Feb",
+                "value": "910000"
+            },
+            {
+                "label": "Mar",
+                "value": "720000"
+            },
+            {
+                "label": "Apr",
+                "value": "550000"
+            }
+        ]
+    }
+}).render();
+</script>
+
+</html>
