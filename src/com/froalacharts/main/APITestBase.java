@@ -63,7 +63,7 @@ public class APITestBase
         String browser = prop.getProperty("browser");
         if(browser.equalsIgnoreCase("chrome"))
         {
-            System.setProperty("webdriver.chrome.driver", "C://Apache24//htdocs//api_fc_automation//drivers/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "C://Apache24//htdocs//frocharts_api_fc_automation//drivers/chromedriver.exe");
             driver=new ChromeDriver();
         }
         else if(browser.equalsIgnoreCase("firefox"))
