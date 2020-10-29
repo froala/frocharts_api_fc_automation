@@ -68,7 +68,7 @@ public class APITestBase
         }
         else if(browser.equalsIgnoreCase("firefox"))
         {
-            System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
+            System.setProperty("webdriver.gecko.driver", "C://Apache24//htdocs//frocharts_api_fc_automation//drivers/geckodriver.exe");
             driver=new FirefoxDriver();
         }
         
