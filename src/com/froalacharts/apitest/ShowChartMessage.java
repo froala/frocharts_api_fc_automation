@@ -81,12 +81,19 @@ public class ShowChartMessage extends APITestBase
 			e.printStackTrace();
 		}
 		test.log(LogStatus.PASS, test.addScreenCapture(APITestBase.capture("ShowChartMessage()_Overlay Chart Message should be shown over the Chart")));
-		
-		WebElement messageGroup = pom.getElementByPartialClassName("g", "messageGroup");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+//		WebElement messageGroup = pom.getElementByPartialClassName("g", "messageGroup");
+		WebElement messageGroup = driver.findElement(By.xpath("//*[contains(@class,'messageGroup')]"));
+				//
 		WebElement msgGroupRect = messageGroup.findElement(By.tagName("rect"));
 		Assert.assertTrue(msgGroupRect.getAttribute("fill-opacity").equals("0.2"),"Opacity should be 0.2");
 		
-		WebElement messageGroup1 = pom.getElementByPartialClassName("g", "messageGroup");
+		//WebElement messageGroup1 = pom.getElementByPartialClassName("g", "messageGroup");
+		WebElement messageGroup1 = driver.findElement(By.xpath("//*[contains(@class,'messageGroup')]"));
 		WebElement messageText = messageGroup1.findElement(By.tagName("text"));
 		String checkText = messageText.getText();
 		Assert.assertTrue(checkText.equals("Chart Message"),"Chart Message should be shown as: Chart Message");

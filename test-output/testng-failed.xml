@@ -8,10 +8,9 @@
     <classes>
       <class name="com.froalacharts.licensevalidationtest.LicenseValidation">
         <methods>
+          <include name="verifyWatermarkNotDisplayed_for_valid_key"/>
           <include name="shutDown"/>
-          <include name="verifyWatermarkDisplayed"/>
           <include name="setUp"/>
-          <include name="verifyWatermarkDisplayedForCreditLabelTrue"/>
         </methods>
       </class> <!-- com.froalacharts.licensevalidationtest.LicenseValidation -->
     </classes>

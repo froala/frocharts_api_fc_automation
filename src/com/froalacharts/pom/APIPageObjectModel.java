@@ -1,8 +1,11 @@
 package com.froalacharts.pom;
 import org.openqa.selenium.support.pagefactory.*;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.froalacharts.main.APITestBase;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -83,6 +86,7 @@ public class APIPageObjectModel extends APITestBase
 	
 	public List<WebElement> getAllSvgElems()
 	{
+		
 		return svgElements;
 	}
 	
@@ -133,9 +137,17 @@ public class APIPageObjectModel extends APITestBase
 	public WebElement getElementByPartialClassName(String tagName,String partialClassName)
 	{
 		List<WebElement> allElements = driver.findElements(By.tagName(tagName));
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		for(WebElement all : allElements)
-		{						
-			if(all.getAttribute("class").contains(partialClassName))				
+		{			
+			
+ 			if(all.getAttribute("class").contains(partialClassName))				
 				return all;
 		}
 		return null;
@@ -241,12 +253,28 @@ public class APIPageObjectModel extends APITestBase
 	public boolean isTrialWatermarkVisible()
 	{
 		boolean status = false;
-		int count = driver.findElements(By.xpath("//*[text()=\"Powered by\"]")).size();		
+		int count = driver.findElements(By.xpath("//*[text()=\"Powered by\"]")).size();
+		
 		if(count >= 1) {
+			driver.findElement(By.cssSelector("g#Layer_Core")).isDisplayed();
 			status=true;
 		}
 		return status;
 	}
+	
+	public void click_on_watermark()
+	{
+		driver.findElement(By.xpath("//*[text()=\"Powered by\"]")).click();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	
 	public void selectyear() {
 		
